@@ -311,7 +311,7 @@ export async function flushPendingPayoutQueue(): Promise<{
     console.warn("[Queue Flusher] Could not get server wallet:", e.message);
   }
 
-  let serverBalance: bigint = 0n;
+  let serverBalance: bigint = BigInt(0);
   if (serverWalletAddress) {
     try {
       serverBalance = await viemPublicClient.getBalance({ address: serverWalletAddress });
