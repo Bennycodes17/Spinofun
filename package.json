@@ -1,0 +1,36 @@
+{
+  "name": "spino-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "dev:https": "next dev -H 0.0.0.0 --experimental-https",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "fast-jwt": "^6.3.3",
+    "framer-motion": "^12.4.7",
+    "jose": "^6.2.12",
+    "lucide-react": "^0.475.0",
+    "next": "15.5.27",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwind-merge": "^3.0.1",
+    "viem": "^2.38.0",
+    "@privy-io/react-auth": "^3.47.0",
+    "@privy-io/server-auth": "^1.32.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
