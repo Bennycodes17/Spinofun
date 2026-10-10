@@ -8,6 +8,12 @@
     "build": "next build",
     "start": "next start"
   },
+  "overrides": {
+    "ox": "0.14.45",
+    "permissionless": {
+      "ox": "0.14.45"
+    }
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",
     "canvas-confetti": "^1.9.4",
