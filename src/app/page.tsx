@@ -63,6 +63,7 @@ export default function HomePage() {
     isSimulated,
     selectedPreset,
     selectSimulatedWallet,
+    connectWallet,
   } = useWalletSimulator();
 
   const realAddress = user?.wallet?.address || wallets?.[0]?.address || null;
@@ -268,7 +269,7 @@ export default function HomePage() {
                     Connect your Web3 wallet to read your continuous holding duration, check tier eligibility, and spin for instant rewards.
                   </p>
                   <button
-                    onClick={() => login()}
+                    onClick={() => connectWallet()}
                     className="sticker-btn w-full bg-[#FF5C83] hover:bg-[#ff4772] text-white py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-[3px_4px_0px_#10121A]"
                   >
                     <Wallet className="w-4 h-4" />
@@ -488,7 +489,7 @@ export default function HomePage() {
                 cooldownSeconds={walletStatus?.tier3CooldownSeconds || 0}
                 walletAddress={currentAddress}
                 onSpinSuccess={fetchWalletStatus}
-                onConnectWallet={login}
+                onConnectWallet={connectWallet}
                 disabledReason={
                   !currentAddress
                     ? "CONNECT WALLET TO SPIN"

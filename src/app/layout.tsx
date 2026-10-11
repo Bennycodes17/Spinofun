@@ -7,7 +7,13 @@ export const metadata: Metadata = {
   description:
     "Premium spin-wheel rewards protocol for $SPIN token holders. Gated by 5-minute holding duration, tiered rewards, and automatic wallet payouts.",
   icons: {
-    icon: "/spino-logo.jpg",
+    icon: [
+      { url: "/spino-logo.jpg" },
+      { url: "/spino-logo.jpg", sizes: "32x32" },
+      { url: "/spino-logo.jpg", sizes: "192x192" },
+    ],
+    apple: "/spino-logo.jpg",
+    shortcut: "/spino-logo.jpg",
   },
 };
 
