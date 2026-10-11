@@ -13,7 +13,7 @@ export function Footer() {
   const [footerTheme, setFooterTheme] = useState<"yellow" | "dark">("yellow");
   const { authenticated, user, login } = usePrivy();
   const { wallets } = useWallets();
-  const { activeAddress, selectSimulatedWallet, connectWallet } = useWalletSimulator();
+  const { activeAddress, selectSimulatedWallet, openConnectModal } = useWalletSimulator();
 
   const realAddress = user?.wallet?.address || wallets?.[0]?.address || null;
   const isWalletConnected = !!activeAddress || (authenticated && !!realAddress);
@@ -69,7 +69,7 @@ export function Footer() {
 
   const handleConnect = () => {
     if (isWalletConnected) return;
-    connectWallet();
+    openConnectModal();
   };
 
   const isYellow = footerTheme === "yellow";

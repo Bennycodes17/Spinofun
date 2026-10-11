@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     "Premium spin-wheel rewards protocol for $SPIN token holders. Gated by 5-minute holding duration, tiered rewards, and automatic wallet payouts.",
   icons: {
     icon: [
-      { url: "/spino-logo.jpg" },
-      { url: "/spino-logo.jpg", sizes: "32x32" },
-      { url: "/spino-logo.jpg", sizes: "192x192" },
+      { url: "/spino-logo.jpg", type: "image/jpeg" },
+      { url: "/icon.jpg", type: "image/jpeg" },
+      { url: "/favicon.ico" },
     ],
-    apple: "/spino-logo.jpg",
     shortcut: "/spino-logo.jpg",
+    apple: "/spino-logo.jpg",
   },
 };
 
@@ -25,6 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/spino-logo.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/spino-logo.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/spino-logo.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -22,7 +22,7 @@ export function Navbar() {
     selectedPreset,
     selectSimulatedWallet,
     disconnectAll,
-    connectWallet,
+    openConnectModal,
   } = useWalletSimulator();
 
   // Unified display address: simulated address takes precedence if set, otherwise real Privy address
@@ -34,7 +34,7 @@ export function Navbar() {
     : "";
 
   const handleConnectWallet = () => {
-    connectWallet();
+    openConnectModal();
   };
 
   const handleDisconnect = () => {

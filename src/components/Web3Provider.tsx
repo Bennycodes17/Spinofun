@@ -17,8 +17,9 @@ if (typeof window !== "undefined") {
 }
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { PrivyProvider } from "@privy-io/react-auth";
+import { PrivyProvider, usePrivy } from "@privy-io/react-auth";
 import { SPINO_CONFIG } from "@/config/spino";
+import { MobileWalletModal, isMobileDevice, isInAppBrowser } from "./MobileWalletModal";
 
 // Robinhood Chain definition for Privy
 export const robinhoodPrivyChain = {
@@ -114,9 +115,6 @@ export const PRESET_SIMULATED_WALLETS: SimulatedWallet[] = [
   },
 ];
 
-import { MobileWalletModal } from "@/components/MobileWalletModal";
-import { usePrivy } from "@privy-io/react-auth";
-
 interface WalletSimulatorContextType {
   activeAddress: string | null;
   setActiveAddress: (addr: string | null) => void;
@@ -124,8 +122,7 @@ interface WalletSimulatorContextType {
   selectedPreset: SimulatedWallet | null;
   selectSimulatedWallet: (preset: SimulatedWallet) => void;
   disconnectAll: () => void;
-  connectWallet: () => void;
-  openMobileWalletModal: () => void;
+  openConnectModal: () => void;
 }
 
 const WalletSimulatorContext = createContext<WalletSimulatorContextType>({
@@ -135,8 +132,7 @@ const WalletSimulatorContext = createContext<WalletSimulatorContextType>({
   selectedPreset: null,
   selectSimulatedWallet: () => {},
   disconnectAll: () => {},
-  connectWallet: () => {},
-  openMobileWalletModal: () => {},
+  openConnectModal: () => {},
 });
 
 export const useWalletSimulator = () => useContext(WalletSimulatorContext);
@@ -187,24 +183,8 @@ function Web3InnerProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("spino_sim_wallet");
   };
 
-  const isMobile = () => {
-    if (typeof window === "undefined" || typeof navigator === "undefined") return false;
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  };
-
-  const isInAppBrowser = () => {
-    if (typeof window === "undefined") return false;
-    return !!(
-      (window as any).ethereum?.isMetaMask ||
-      (window as any).ethereum?.isTrust ||
-      (window as any).ethereum?.isCoinbaseWallet ||
-      (window as any).ethereum ||
-      (window as any).web3
-    );
-  };
-
-  const connectWallet = () => {
-    if (isMobile() && !isInAppBrowser()) {
+  const openConnectModal = () => {
+    if (isMobileDevice() && !isInAppBrowser()) {
       setIsMobileModalOpen(true);
     } else {
       login();
@@ -220,8 +200,7 @@ function Web3InnerProvider({ children }: { children: React.ReactNode }) {
         selectedPreset,
         selectSimulatedWallet,
         disconnectAll,
-        connectWallet,
-        openMobileWalletModal: () => setIsMobileModalOpen(true),
+        openConnectModal,
       }}
     >
       {children}
