@@ -3,7 +3,7 @@ import "./globals.css";
 import { Web3Provider } from "@/components/Web3Provider";
 
 export const metadata: Metadata = {
-  title: "SPINO.fun | Hold. Spin. Win ETH. • Instant Rewards",
+  title: "Spinofun.online | Hold. Spin. Win ETH. • Instant Rewards",
   description:
     "Premium spin-wheel rewards protocol for $SPIN token holders. Gated by 5-minute holding duration, tiered rewards, and automatic wallet payouts.",
   icons: {

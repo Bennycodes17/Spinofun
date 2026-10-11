@@ -40,7 +40,7 @@ export default function HowItWorksPage() {
             </span>
           </div>
           <h1 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-[#14151A] tracking-tight">
-            How SPINO.fun <span className="text-[#FF6B8A] inline-block">Works</span>
+            How Spinofun.online <span className="text-[#FF6B8A] inline-block">Works</span>
           </h1>
           <div className="w-48 mx-auto">
             <SquiggleUnderline className="text-[#FF6B8A]" />

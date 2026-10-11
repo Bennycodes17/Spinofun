@@ -117,9 +117,9 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* Center: SPINO Wordmark */}
+          {/* Center: SPINOFUN Wordmark */}
           <div className="font-display font-black text-sm tracking-widest uppercase">
-            SPINO<span className="text-[#FF6B8A]">.FUN</span>
+            SPINOFUN<span className="text-[#FF6B8A]">.ONLINE</span>
           </div>
 
           {/* Right: Login / Connect Wallet + Color Scheme Switcher */}
@@ -337,7 +337,7 @@ export function Footer() {
               : "border-white/10 text-white/60"
           }`}
         >
-          <div>SPINO.FUN · HOLD. SPIN. WIN ETH.</div>
+          <div>SPINOFUN.ONLINE · HOLD. SPIN. WIN ETH.</div>
           <div>© 2026 SPINO TECHNOLOGIES</div>
           <div className="flex items-center gap-3">
             <Link

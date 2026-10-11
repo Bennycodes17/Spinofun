@@ -61,7 +61,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-xl md:text-2xl tracking-tight text-[#14151A] leading-none">
-                SPINO<span className="text-[#FF6B8A]">.fun</span>
+                SPINOFUN<span className="text-[#FF6B8A]">.online</span>
               </span>
               <span className="text-[10px] font-bold text-[#14151A]/60 tracking-wider uppercase -mt-0.5">
                 Hold. Spin. Win ETH.
@@ -186,7 +186,7 @@ export function Navbar() {
               <div className="relative w-10 h-10 rounded-full border-2 border-[#14151A] overflow-hidden bg-white">
                 <Image src="/spino-logo.jpg" alt="SPINO" fill className="object-cover" />
               </div>
-              <span className="font-display font-black text-2xl text-[#14151A]">SPINO.fun</span>
+              <span className="font-display font-black text-2xl text-[#14151A]">Spinofun.online</span>
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}

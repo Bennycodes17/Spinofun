@@ -19,7 +19,6 @@ if (typeof window !== "undefined") {
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { PrivyProvider, usePrivy } from "@privy-io/react-auth";
 import { SPINO_CONFIG } from "@/config/spino";
-import { MobileWalletModal, isMobileDevice, isInAppBrowser } from "./MobileWalletModal";
 
 // Robinhood Chain definition for Privy
 export const robinhoodPrivyChain = {
@@ -140,8 +139,7 @@ export const useWalletSimulator = () => useContext(WalletSimulatorContext);
 function Web3InnerProvider({ children }: { children: React.ReactNode }) {
   const [activeAddress, setActiveAddress] = useState<string | null>(null);
   const [selectedPreset, setSelectedPreset] = useState<SimulatedWallet | null>(null);
-  const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
-  const { login } = usePrivy();
+  const { login, connectWallet, authenticated } = usePrivy();
 
   useEffect(() => {
     const saved = localStorage.getItem("spino_sim_wallet");
@@ -184,8 +182,8 @@ function Web3InnerProvider({ children }: { children: React.ReactNode }) {
   };
 
   const openConnectModal = () => {
-    if (isMobileDevice() && !isInAppBrowser()) {
-      setIsMobileModalOpen(true);
+    if (authenticated) {
+      connectWallet();
     } else {
       login();
     }
@@ -204,14 +202,6 @@ function Web3InnerProvider({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
-      <MobileWalletModal
-        isOpen={isMobileModalOpen}
-        onClose={() => setIsMobileModalOpen(false)}
-        onOpenPrivy={() => {
-          setIsMobileModalOpen(false);
-          login();
-        }}
-      />
     </WalletSimulatorContext.Provider>
   );
 }
@@ -240,6 +230,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
           theme: "light",
           accentColor: "#FF6B8A",
           logo: "/spino-logo.jpg",
+          showWalletLoginFirst: true,
           walletList: ["detected_wallets", "metamask", "coinbase_wallet", "rainbow", "wallet_connect"],
         },
         embeddedWallets: {

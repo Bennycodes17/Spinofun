@@ -1,5 +1,5 @@
 /**
- * SPINO.fun Core Configuration
+ * Spinofun.online Core Configuration
  * Target EVM Network: Robinhood Chain (ETH)
  * Single wallet & payout system: Privy (EVM 4663 / 46630)
  */
