@@ -46,7 +46,7 @@ export const SPINO_CONFIG = {
   TOKEN_NAME: "SPINO",
   TOKEN_SYMBOL: "$SPIN",
   // Real token contract address on Robinhood Chain Mainnet
-  TOKEN_CONTRACT: (process.env.SPIN_TOKEN_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_SPIN_TOKEN_CONTRACT_ADDRESS || "0x80f3a2860091515a4be6c6aaad43235e242f85af") as `0x${string}`,
+  TOKEN_CONTRACT: "0x80f3a2860091515a4be6c6aaad43235e242f85af" as `0x${string}`,
   TOKEN_DECIMALS: 18,
 
   // Privy Configuration

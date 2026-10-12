@@ -18,11 +18,13 @@ export function Footer() {
   const realAddress = user?.wallet?.address || wallets?.[0]?.address || null;
   const isWalletConnected = !!activeAddress || (authenticated && !!realAddress);
 
+  const LIVE_TOKEN_CONTRACT = "0x80f3a2860091515a4be6c6aaad43235e242f85af";
+
   const handleCopyCA = async (e?: React.MouseEvent | React.TouchEvent) => {
     if (e) {
       e.stopPropagation();
     }
-    const textToCopy = SPINO_CONFIG.TOKEN_CONTRACT;
+    const textToCopy = LIVE_TOKEN_CONTRACT;
     let success = false;
 
     // 1. Try modern Clipboard API if supported and in secure context
@@ -288,7 +290,7 @@ export function Footer() {
           >
             <div className="flex-1 min-w-0 text-left sm:text-center font-display font-black text-[10px] sm:text-xs md:text-sm lg:text-base tracking-wide uppercase truncate">
               <span className="text-[#FF6B8A] mr-1 sm:mr-2">CONTRACT<span className="hidden sm:inline"> ADDRESS</span>:</span>
-              <span className="font-mono text-[#14151A] tracking-normal select-all">{SPINO_CONFIG.TOKEN_CONTRACT}</span>
+              <span className="font-mono text-[#14151A] tracking-normal select-all">{LIVE_TOKEN_CONTRACT}</span>
             </div>
 
             <button

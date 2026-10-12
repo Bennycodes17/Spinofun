@@ -114,7 +114,7 @@ export function Navbar() {
 
                     <div className="space-y-1.5 mb-3">
                       <a
-                        href={`https://testnet.explorer.chain.robinhood.com/address/${currentAddress}`}
+                        href={`https://explorer.chain.robinhood.com/address/${currentAddress}`}
                         target="_blank"
                         rel="noreferrer"
                         className="w-full text-xs p-2 rounded-xl border border-[#14151A]/10 hover:bg-[#C9EEF2]/50 transition-all flex items-center justify-between font-bold"
@@ -126,7 +126,7 @@ export function Navbar() {
                         <HelpCircle className="w-3.5 h-3.5 text-[#14151A]/60" />
                       </a>
                       <a
-                        href={`https://testnet.explorer.chain.robinhood.com/token/0x4F8BA593C4DB90bdb52309A7C278889ACBE89C5B`}
+                        href={`https://explorer.chain.robinhood.com/token/0x80f3a2860091515a4be6c6aaad43235e242f85af`}
                         target="_blank"
                         rel="noreferrer"
                         className="w-full text-xs p-2 rounded-xl border border-[#14151A]/10 hover:bg-[#FFD94A]/40 transition-all flex items-center justify-between font-bold"
