@@ -14,7 +14,7 @@ export interface WheelSegment {
 }
 
 const isProduction = process.env.NODE_ENV === "production" || process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
-const networkEnv = (process.env.NEXT_PUBLIC_NETWORK || (isProduction ? "mainnet" : "testnet")).toLowerCase();
+const networkEnv = (process.env.NEXT_PUBLIC_NETWORK || "mainnet").toLowerCase();
 const isMainnet = networkEnv === "mainnet";
 
 export const SPINO_CONFIG = {
@@ -45,8 +45,8 @@ export const SPINO_CONFIG = {
   // Token Specification
   TOKEN_NAME: "SPINO",
   TOKEN_SYMBOL: "$SPIN",
-  // Real token contract address on Robinhood Chain (User input required for production)
-  TOKEN_CONTRACT: (process.env.SPIN_TOKEN_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_SPIN_TOKEN_CONTRACT_ADDRESS || "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D") as `0x${string}`,
+  // Real token contract address on Robinhood Chain Mainnet
+  TOKEN_CONTRACT: (process.env.SPIN_TOKEN_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_SPIN_TOKEN_CONTRACT_ADDRESS || "0x80f3a2860091515a4be6c6aaad43235e242f85af") as `0x${string}`,
   TOKEN_DECIMALS: 18,
 
   // Privy Configuration
